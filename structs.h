@@ -1,8 +1,17 @@
 #pragma once
-#pragma once
-#pragma once
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 #include <windows.h>
 #include <stdio.h>
+
+typedef LONG NTSTATUS;
+#define NT_SUCCESS(Status) (((NTSTATUS)(Status)) >= 0)
 
 typedef struct _PEB_LDR_DATA {
 	BYTE       Reserved1[8];
@@ -288,4 +297,4 @@ PPEB NTgetPeb(VOID);
 BOOL ReadShellcodeFile(CHAR* shellcodeName, LPVOID* shellcode, SIZE_T* shellcodeSize);
 BOOL LaunchnotepadAndGetPID(OUT PROCESS_INFORMATION* pi);
 
-
+#pragma once
